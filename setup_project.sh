@@ -18,6 +18,8 @@ trap cleanup SIGINT
 mkdir "$project"
 mkdir -p "$project/Helpers"
 mkdir -p "$project/reports"
+echo "Press Ctrl+C now to test archive creation..."
+sleep 8
 cat > "$project/attendance_checker.py" <<EOF
 import csv
 import json
@@ -98,8 +100,8 @@ if [ "$choice" = "yes" ]; then
     echo "Enter Failure Threshold:"
     read failure
 
-    sed -i "s/75/$warning/" "$project/Helpers/config.json"
-    sed -i "s/50/$failure/" "$project/Helpers/config.json"
+sed -i "s/\"warning\": 75/\"warning\": $warning/" "$project/Helpers/config.json"
+sed -i "s/\"failure\": 50/\"failure\": $failure/" "$project/Helpers/config.json"
 
 fi
 echo "Running Health Check..."
