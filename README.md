@@ -78,18 +78,8 @@ If interrupted:
 
 ## Testing the Archive Feature
 
-1. Run the script:
-
-```bash
-./setup_project.sh
-```
-
-2. Enter a project name.
-3. When prompted to test interruption, press:
-
-```text
-Ctrl + C
-```
+Run the script and press Ctrl+C before setup completes.
+The trap function will create an archive and remove the incomplete directory.
 
 4. Verify that:
 
