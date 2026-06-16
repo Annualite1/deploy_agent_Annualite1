@@ -18,8 +18,6 @@ trap cleanup SIGINT
 mkdir "$project"
 mkdir -p "$project/Helpers"
 mkdir -p "$project/reports"
-echo "Press Ctrl+C now to test archive creation..."
-sleep 8
 cat > "$project/attendance_checker.py" <<EOF
 import csv
 import json
